@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import rich_click as click
 import pysam
 from glob import glob
@@ -116,6 +118,11 @@ def create_xmfa(gene_al_dir, pan_fa, exclude, extension="fas", outfile="corecomb
         outfile=outfile,
     )
 
-
 if __name__ == "__main__":
-    create_xmfa()
+    import sys
+    if len(sys.argv) == 1:
+        create_xmfa.main(args=["--help"])
+    else:
+        create_xmfa()
+#if __name__ == "__main__":
+#    create_xmfa()
